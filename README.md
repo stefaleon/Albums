@@ -49,3 +49,40 @@ const App = () => (
     <Header />
 );
 ```
+
+## 003 Style the *header* component
+* Inside *src/components/header.js* create a *styles* object.
+* Add the *textStyle* property and give it a *fontSize* of 20.
+```
+const styles = {
+    textStyle: {
+        fontSize: 20    
+    }
+};
+```
+* Use it inside the component with destructuring and apply the style to the *Text* tag using the *style* property.
+```
+const Header = () => {
+    const { textStyle } = styles;
+
+    return <Text style={textStyle}>Albums</Text>;
+};
+```
+* Import the *View* tag in order to wrap the *Text* tag with it:
+`import { Text, View } from 'react-native';`
+* In the *styles* object add color styling for the *View* tag.
+```
+viewStyle: {
+    backgroundColor: '#F8F8F8'
+}
+```
+* In the component, wrap the wrap the *Text* tag with the *View* tag and apply the *viewStyle*.
+```
+    const { textStyle, viewStyle } = styles;
+
+    return (
+        <View style={viewStyle}>
+            <Text style={textStyle}>Albums</Text>
+        </View>
+    );
+```
