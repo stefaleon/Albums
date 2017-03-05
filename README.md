@@ -20,3 +20,32 @@ const App = () => (
 ```
 AppRegistry.registerComponent('albums', () => App);
 ```  
+
+## 002 Create and nest the *header* component
+* Create the *src* folder.
+* Create the *src/components* folder.
+* Create the *src/components/header.js* file.
+* Make the necessary imports.
+```
+import React from 'react';
+import { Text } from 'react-native';
+```
+* Create the *Header* component function, which returns a *Text* tag.
+```
+const Header = () => {
+    return <Text>Albums</Text>;
+};
+```
+* Only the root component, in this case *App*, uses *AppRegistry*. So, in order to make the *header* component available to the other parts of the app, we need to export it.
+```
+export default Header;
+```
+* Import the *header* component in the *index* file and nest it inside the *App* component.
+
+```
+import Header from './src/components/header';
+
+const App = () => (
+    <Header />
+);
+```
