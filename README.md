@@ -167,8 +167,19 @@ class AlbumList extends Component {
 ```
 componentWillMount() {
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-        .then(response => console.log(response));
+        .then(response => this.setstate);
 }
 ```
 
+## 009 Set and update the *albums* state
 
+* In order to rerender the component when the API data are fetched, we will enable component level state inside the *Albumlist* component.
+* Set up the initial state with a class level property. The *albums* piece of state will be initialized as an empty array.
+ ```
+ state = { albums: [] };
+ ```
+* In the axios promise return, the request handler calls *setState* in order to set the new state of *albums*. Now the array will contain the fetched data, which is a set of objects, defined by *response.data*.
+ ```
+ axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+     .then(response => this.setState({ albums: response.data }));
+```
