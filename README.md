@@ -76,7 +76,7 @@ viewStyle: {
     backgroundColor: '#F8F8F8'
 }
 ```
-* In the component, wrap the wrap the *Text* tag with the *View* tag and apply the *viewStyle*.
+* In the component, wrap the *Text* tag with the *View* tag and apply the *viewStyle*.
 ```
     const { textStyle, viewStyle } = styles;
 
@@ -86,3 +86,15 @@ viewStyle: {
         </View>
     );
 ```
+
+## 004 More styling in *viewStyle*
+* Center the content vertically with `justifyContent: 'center'`.
+* Center the content horizontally with `alignItems: 'center'`.
+* Add a `height: 60` and `paddingTop: 15`.
+* Add a shadow on the border with
+```
+shadowColor: '#000',
+shadowOffset: { width: 0, height: 2 },
+shadowOpacity: 0.2
+```
+* Finally assign `elevation: 2` and `position: 'relative'`.
