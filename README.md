@@ -98,3 +98,17 @@ shadowOffset: { width: 0, height: 2 },
 shadowOpacity: 0.2
 ```
 * Finally assign `elevation: 2` and `position: 'relative'`.
+
+
+## 005 Refactor *header* to receive text as props
+* Edit the *Header* function definition so that it is called with a *props* object as its first argument when it is created: `const Header = (props) => {...`
+* Replace the hardcoded text with the *headerText* property:
+```
+<Text style={textStyle}>{props.headerText}</Text>
+```
+* The *headerText* property has to be passed by the parent component, which is *App*, when the *Header* is rendered. In the *index* file, the *Header* tag is thus modified.
+```
+const App = () => (
+    <Header headerText={'Albums'} />
+);
+```
