@@ -112,3 +112,34 @@ const App = () => (
     <Header headerText={'Albums'} />
 );
 ```
+
+## 006 Create the *AlbumList* component
+* In *src/components* create the *AlbumList.js* file.
+* Make the necessary imports.
+```
+import React from 'react';
+import { Text, View } from 'react-native';
+```
+* Create the *AlbumList* function and export it.
+
+```
+const AlbumList = () => {
+    return (
+        <View>
+            <Text>Album List</Text>
+        </View>
+    );
+};
+
+export default AlbumList;
+```
+
+* Import *AlbumList* in *index* and nest it in the *App* component. Since we return more than one nested components, we have to wrap the *App* component's return in a *View* tag. Import the *View* component from *'react-native'* first: `import { AppRegistry, View } from 'react-native';`
+```
+const App = () => (
+    <View>
+        <Header headerText={'Albums'} />
+        <AlbumList />
+    </View>
+);
+```
