@@ -183,3 +183,23 @@ componentWillMount() {
  axios.get('https://rallycoding.herokuapp.com/api/music_albums')
      .then(response => this.setState({ albums: response.data }));
 ```
+
+## 010 Render a list of *albums*
+* The list of albums is now available as *this.state.albums*.
+* We will map over the array of *albums*. Make the *renderAlbums* helper method. For now this will be returning the title of each album, which is available as *album.title*. Add the *album.title* in the *Text* tag as a value for the unique *key* property required from the iterator.
+```
+renderAlbums() {
+    return this.state.albums.map(album =>
+         <Text key={album.title}>{album.title}</Text>);
+}
+```
+* Call *renderAlbums* inside the main render of *AlbumList*.
+```
+render() {
+    return (
+        <View>
+            {this.renderAlbums()}
+        </View>
+    );
+}
+```
