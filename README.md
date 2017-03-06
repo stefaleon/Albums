@@ -158,3 +158,17 @@ class AlbumList extends Component {
     }
 }
 ```
+
+## 008 Fetching the *Albums* data from the API
+
+* Add the *componentWillMount* lifecycle method in *Albumlist*.
+* Install *axios: `$ npm install --save axios`*.
+* Inside the *componentWillMount* lifecycle method we will make the http request to the *Albums* API with the use of a *get* type request.
+```
+componentWillMount() {
+    axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+        .then(response => console.log(response));
+}
+```
+
+
