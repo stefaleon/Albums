@@ -143,3 +143,18 @@ const App = () => (
     </View>
 );
 ```
+
+## 007 Refactor *AlbumList* to a class based component
+* Import the *Component* class from *React*: `import React, { Component } from 'react';`.
+* Change the *AlbumList* definition, from a function to a class and define the *render* method, which will return the JSX for the *AlbumList* class component.
+```
+class AlbumList extends Component {
+    render() {
+        return (
+            <View>
+                <Text>Album List</Text>
+            </View>
+        );
+    }
+}
+```
