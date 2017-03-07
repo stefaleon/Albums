@@ -253,7 +253,7 @@ import { View } from 'react-native';
 ```
 * Create the *Card* function and a *styles* object.
 Add the *containerStyle* custom property which contains the styling.
-Assign *styles.containerStyle* to the *View* which is the return of *Card* and export *Card*. 
+Assign *styles.containerStyle* to the *View* which is the return of *Card* and export *Card*.
 
 ```
 const Card = () => {
@@ -279,4 +279,23 @@ const styles = {
 };
 
 export default Card;
+```
+
+## 013 Use the *Card* component in *AlbumDetail*
+*  In *src/components/AlbumDetail.js* `import Card from './Card';`.
+* Replace the *View* tag with a *Card* tag.
+```
+<Card>
+    <Text>{props.album.title}</Text>
+</Card>
+```
+* We need to instruct *Card* on how to render any children. In *src/components/Card.js*, add a reference to *props* as an argument in the *Card* definition. In order to render any components passed to the *Card*, we add a reference to *props.children* inside its *View* tag.
+```
+const Card = (props) => {
+    return (
+        <View style={styles.containerStyle}>
+            {props.children}
+        </View>
+    );
+};
 ```
