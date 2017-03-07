@@ -379,3 +379,27 @@ const styles = {
 };
 ```
 * Apply the style to the secong *View* container: `<View style={styles.headerContentStyle}>`
+
+## 017 Render the artist image thumbnail
+* In *src/components/AlbumDetail.js*, import the image primitive from React Native: `import { Text, View, Image } from 'react-native';`
+* Inside the first *View* tag, add the *Image* tag. The latter requires a *source* prop to be defines in order to know what to render. We have to provide an object with a URI property, which in turn will be the link to the image we want to render. This is available in *props.album.thumbnail_image*.
+```
+<View>
+    <Image source={{ uri: props.album.thumbnail_image }} />
+</View>
+```
+* In order for images to appear in a React Native app, they require to be styled first, at least with height and width. Add the *thumbnailStyle* inside *styles* and pass it to the *Image* tag.
+```
+thumbnailStyle: {
+    height: 50,
+    width: 50
+}
+```
+```
+<View>
+    <Image
+        style={styles.thumbnailStyle}
+        source={{ uri: props.album.thumbnail_image }}
+    />
+</View>
+```
