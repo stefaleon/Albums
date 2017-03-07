@@ -336,3 +336,21 @@ const styles = {
 ```
 export default CardSection;
 ```
+
+## 015 Use the *CardSection* component in *AlbumDetail*
+*  In *src/components/AlbumDetail.js* `import CardSection from './CardSection';`.
+* Nest *CardSection* tags inside the *Card* tag. Display the artist name as well as the album title.
+```
+const AlbumDetail = (props) => {
+    return (
+        <Card>
+            <CardSection>
+                <Text>{props.album.title}</Text>
+            </CardSection>
+            <CardSection>
+                <Text>{props.album.artist}</Text>
+            </CardSection>
+        </Card>
+    );
+};
+```
