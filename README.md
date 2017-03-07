@@ -354,3 +354,28 @@ const AlbumDetail = (props) => {
     );
 };
 ```
+
+## 016 Edit the layout of the first *CardSection*
+* In *src/components/AlbumDetail.js*, refactor the contents inside the *Card* tag. Nest two *View* tags inside the *CardSection* component. The first will contain the artist image. Wrap the *Text* lines, those containing the album title and the artist name, inside the second *View* tag.  
+```
+<Card>
+    <CardSection>
+        <View>            
+        </View>
+        <View>
+            <Text>{props.album.title}</Text>
+            <Text>{props.album.artist}</Text>
+        </View>
+    </CardSection>
+</Card>
+```
+* Define a *styles* object. Add the *headerContentStyle* custom property which contains the styling.
+```
+const styles = {
+    headerContentStyle: {
+        flexDirection: 'column',
+        justifyContent: 'space-around'        
+    }
+};
+```
+* Apply the style to the secong *View* container: `<View style={styles.headerContentStyle}>`
