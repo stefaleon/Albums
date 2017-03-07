@@ -203,3 +203,42 @@ render() {
     );
 }
 ```
+
+## 011 Create the *AlbumDetail* component
+* In *src/components* create the *AlbumDetail.js* file.
+* Make the necessary imports.
+```
+import React from 'react';
+import { Text, View } from 'react-native';
+```
+
+* Create the *AlbumDetail* function and export it.
+
+```
+const AlbumDetail = () => {
+
+};
+
+export default AlbumDetail;
+```
+* Import *AlbumDetail* in *AlbumList* and replace the *Text* tag in *renderAlbums* with an *AlbumDetail* tag. There is no need to display the *album.title* anymore and we can make the *AlbumDetail* tag a self-closing one. Pass the *album* variable, which holds the data, as a prop we may call also *album* to *AlbumDetail*.
+```
+import AlbumDetail from './AlbumDetail';
+```
+```
+renderAlbums() {
+    return this.state.albums.map(album =>
+        <AlbumDetail key={album.title} album={album}/>);
+}
+```
+* We can also now remove the *Text* import from *AlbumList*.
+* In *AlbumDetail* we can now consume the passed prop. We will display just the album title for now.
+```
+const AlbumDetail = (props) => {
+    return (
+        <View>
+            <Text>{props.album.title}</Text>
+        </View>
+    );
+};
+```
