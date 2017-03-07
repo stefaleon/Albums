@@ -299,3 +299,40 @@ const Card = (props) => {
     );
 };
 ```
+
+## 014 Create the *CardSection* component
+* In *src/components* create the *CardSection.js* file.
+* Make the necessary imports.
+```
+import React from 'react';
+import { View } from 'react-native';
+```
+* Create the *CardSection* function. Add a reference to *props* as an argument in the *CardSection* definition. It returns a *View* tag which, in order to render any components passed to the *CardSection*, contains a reference to *props.children*.
+The *View* tag is styled  with *styles.containerStyle* which is about to be defined right afterwards.
+```
+const CardSection = (props) => {
+    return (
+        <View style={styles.containerStyle}>
+            {props.children}
+        </View>
+    );
+};
+```
+* Define a *styles* object. Add the *containerStyle* custom property which contains the styling.
+```
+const styles = {
+    containerStyle: {
+        borderBottomWidth: 1,
+        padding: 5,
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        borderColor: '#ddd',
+        position: 'relative'
+    }
+};
+```
+* Finally export *CardSection*.
+```
+export default CardSection;
+```
