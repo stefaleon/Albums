@@ -403,3 +403,26 @@ thumbnailStyle: {
     />
 </View>
 ```
+
+## 018 More styling for the first *CardSection*
+* Style the first *Text* tag in order to modify the text size with *headerTextStyle*.
+```
+<Text style={styles.headerTextStyle}>{props.album.title}</Text>
+```
+```
+headerTextStyle: {
+    fontSize: 18
+}
+```
+* Style the wrapper *View* tag of the thumbnail in order to fix the text spacing  with *thumbnailContainerStyle*.
+```
+<View style={styles.thumbnailContainerStyle}>
+```
+```
+thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+}
+```
