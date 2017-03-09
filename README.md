@@ -378,7 +378,7 @@ const styles = {
     }
 };
 ```
-* Apply the style to the secong *View* container: `<View style={styles.headerContentStyle}>`
+* Apply the style to the second *View* container: `<View style={styles.headerContentStyle}>`
 
 ## 017 Render the artist image thumbnail
 * In *src/components/AlbumDetail.js*, import the image primitive from React Native: `import { Text, View, Image } from 'react-native';`
@@ -425,4 +425,40 @@ thumbnailContainerStyle: {
     marginLeft: 10,
     marginRight: 10
 }
+```
+
+## 019 Refactor the first *CardSection* with destructuring
+* In *AlbumDetail* we can use ES6 destructuring in order to avoid repeated appearances of `props.album` and `styles`.
+* Instead of `props` we can use `{album}` as an argument in the *AlbumDetail* definition. Then we can also destructure out `title`, `artist` and `thumbnail_image`.
+```
+const AlbumDetail = ({ album }) => {
+    const { title, artist, thumbnail_image } = album;
+```
+* With `styles` we are going to destructure out of `thumbnailContainerStyle`, `thumbnailStyle`, `headerContentStyle` and `headerTextStyle` as well.
+```
+const {
+    thumbnailContainerStyle,
+    thumbnailStyle,
+    headerContentStyle,
+    headerTextStyle
+} = styles;
+```
+* Now the return is more DRY.
+```
+return (
+    <Card>
+        <CardSection>
+            <View style={thumbnailContainerStyle}>
+                <Image
+                    style={thumbnailStyle}
+                    source={{ uri: thumbnail_image }}
+                />
+            </View>
+            <View style={headerContentStyle}>
+                <Text style={headerTextStyle}>{title}</Text>
+                <Text>{artist}</Text>
+            </View>
+        </CardSection>
+    </Card>
+);
 ```
