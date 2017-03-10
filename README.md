@@ -462,3 +462,37 @@ return (
     </Card>
 );
 ```
+
+## 020 Add the second *CardSection*
+* This one is for the album image.
+* Add the `image` property in the *album* destructuring.
+```
+const { title, artist, thumbnail_image, image } = album;
+```
+* Add a second *CardSection* tag which will display the album image. The link to the image we want to render is available in `props.album.image`. Since we destructured, ` uri: image` will be sufficient .
+```
+<CardSection>
+    <Image
+        style={imageStyle}
+        source={{ uri: image }}
+    />
+</CardSection>
+```
+* Destructure `imageStyle` out of the *styles* object.
+```
+const {
+    thumbnailContainerStyle,
+    thumbnailStyle,
+    headerContentStyle,
+    headerTextStyle,
+    imageStyle
+} = styles;
+```
+* Add *imageStyle* in *styles*. Set `flex: 1`  and `width: null` so that the image takes up the full width available to it.
+```
+imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
+}
+```
