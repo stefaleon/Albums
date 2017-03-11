@@ -496,3 +496,27 @@ imageStyle: {
     width: null
 }
 ```
+
+## 021 Make content scrollable
+* There is no scrolling by default in React Native.
+* Identify the content that we want to be scrollable. In our case it is the *Albumlist* component that contains the *View* that renders the albums' content.
+* Inside *AlbumList.js*, import the *ScrollView* component and replace the *View* with it.
+```
+import { ScrollView } from 'react-native';
+```
+```
+return (
+    <ScrollView>
+        {this.renderAlbums()}
+    </ScrollView>
+);
+```
+* When we use *ScrollView*, we must add a style property of `flex:1` to our root view element in order to avoid unwanted bouncing while scrolling and other erratic behaviour. We will do that inside *index.android.js*.
+```
+const App = () => (
+    <View style={{ flex: 1 }}>
+        <Header headerText={'Albums'} />
+        <AlbumList />
+    </View>
+);
+```
