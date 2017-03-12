@@ -556,3 +556,42 @@ return (
     </TouchableOpacity>
 );
 ```
+
+## 023 Style the *Button* component
+* Add the *styles* object, give it a property of *buttonStyle* and apply the styling rules.
+```
+const styles = {    
+    buttonStyle: {
+        flex: 1,
+        alignSelf: 'stretch',
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#007aff',
+        marginLeft: 5,
+        marginRight: 5
+    }
+};
+```
+* Add a property of *textStyle* and apply the styling rules.
+```
+textStyle: {
+    alignSelf: 'center',
+    color: '#007aff',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 10,
+    paddingBottom: 10
+},
+```
+* Destructure *buttonStyle* and *textStyle* from *styles* and apply them to the *TouchableOpacity* and *Text* tags respectively.
+
+```
+const { buttonStyle, textStyle } = styles;
+
+return (
+    <TouchableOpacity style={buttonStyle}>
+        <Text style={textStyle}>Click me!</Text>
+    </TouchableOpacity>
+);
+```
