@@ -520,3 +520,39 @@ const App = () => (
     </View>
 );
 ```
+
+## 022 Create a reusable *Button* component
+* In *src/components* create the *Button.js* file and add the basic boilerplate code.
+
+```
+import React from 'react';
+import { Text } from 'react-native';
+
+const Button = () => {
+    return (
+        <Text>Click me!</Text>
+    );
+};
+
+export default Button;
+```
+* Import the new component into *AlbumDetail* and add a third *CardSection* which will contain it.
+```
+import Button from './Button';
+```
+```
+<CardSection>
+    <Button />
+</CardSection>
+```
+* In *src/components/Button.js* import the *TouchableOpacity* component which is a wrapper for making views respond properly to touches. Then wrap the *Text* tag.
+```
+import { Text, TouchableOpacity } from 'react-native';
+```
+```
+return (
+    <TouchableOpacity>
+        <Text>Click me!</Text>
+    </TouchableOpacity>
+);
+```
