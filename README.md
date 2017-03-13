@@ -595,3 +595,20 @@ return (
     </TouchableOpacity>
 );
 ```
+
+## 024 Respond to user input with *onPress*
+* Add the *onPress* prop to *TouchableOpacity*. This calls a function which is executed when a user taps on the button.
+* In order to maintain the reusability of the button, the called function should be provided by the parent component. If the passed prop is also named *"onPress"*, then it will be accessible as `props.onPress`. We can now destructure it and assign it to *Button*.
+```
+const Button = ({ onPress }) => {
+    const { buttonStyle, textStyle } = styles;
+
+    return (
+        <TouchableOpacity
+            onPress={onPress} style={buttonStyle}
+        >
+            <Text style={textStyle}>Click me!</Text>
+        </TouchableOpacity>
+    );
+};
+```
