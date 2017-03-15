@@ -612,3 +612,17 @@ const Button = ({ onPress }) => {
     );
 };
 ```
+
+## 025 Link to another app with *Linking*
+* In *src/components/AlbumDetail.js* provide the *onPress* prop to the *Button* tag. From there a function will be called, and this function will link us to another mobile app. Since in the data we are getting from the API we have an *amazon* url available, we may use the *openURL* method from the *Linking* library. First we must import *Linking* from *react-native*. We also need to have the `album.url` destructured.
+```
+import { Text, View, Image, Linking } from 'react-native';
+```
+```
+const { title, artist, thumbnail_image, image, url } = album;
+```
+```
+<CardSection>
+    <Button onPress={() => Linking.openURL(url)} />
+</CardSection>
+```
