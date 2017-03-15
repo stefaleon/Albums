@@ -626,3 +626,32 @@ const { title, artist, thumbnail_image, image, url } = album;
     <Button onPress={() => Linking.openURL(url)} />
 </CardSection>
 ```
+
+## 026 Set the *Button* text by props
+* In order to maintain the reusability of the button, the displayed text will be provided by the parent component as a prop.
+* We may provide it directly as the property *"text"*, like:
+```
+<Button onPress={() => Linking.openURL(url)} text="Buy Now!" />
+```
+* Even better we may use `props.children` and nest the desirable text inside the expanded *Button* tag:
+```
+<Button onPress={() => Linking.openURL(url)}>
+    Buy Now!
+</Button>
+```
+* Add *children* as a parameter for *Button* with destructuring and nest `{children}` inside the *Text* tag.
+```
+const Button = ({ onPress, children }) => {
+    const { buttonStyle, textStyle } = styles;
+
+    return (
+        <TouchableOpacity
+            onPress={onPress} style={buttonStyle}
+        >
+            <Text style={textStyle}>
+                {children}
+            </Text>
+        </TouchableOpacity>
+    );
+};
+```
